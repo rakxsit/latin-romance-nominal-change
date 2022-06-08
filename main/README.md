@@ -103,9 +103,14 @@ FULL TOTAL			230252
 
 By percentage:
 
-	|	Prose		|		Poetry			|
-	|Sg	|	Pl	|	Sg	|		Pl	|
-	| ---	|	---	|	---	|		---	|
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+
+|	Prose			|	Poetry		|		|
+|	Sg	|	Pl	|	Sg	|	Pl		|
 Nom	| 16.79	|	5.45	|	21.11	|		5.73	|
 Voc	| 0.24	|	0.13	|	2.70	|		5.85	|
 Acc	| 20.74	|	11.08	|	13.38	|		18.11	|
