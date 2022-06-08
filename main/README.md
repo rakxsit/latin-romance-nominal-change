@@ -1,4 +1,4 @@
-Tyler Lau
+Raksit Tyler Lau-Preechathammarach
 2016.06.24
 
 This is the revised implementation of Lau (2016)
@@ -12,7 +12,7 @@ A stem can have a maximum of 36 phonemes (6 syllables, 6 potential phonemes)
 
 Potential phonemes are: p, t, k, b, d, g, f, v, s, z, h, m, n, w, r, l, y, i, u, e, o, a, - (no phoneme)
 
--
+--
 
 COMMENTS: Back? High? Also lateral to distinguish l and r?
 
@@ -32,7 +32,7 @@ Each phoneme is represented by 11 features, from Chomsky & Halle (1968):
 
 36 * 11 = 396 nodes
 
--
+--
 
 ABOVE SEEMS OFF SO REMADE:
 
@@ -53,7 +53,7 @@ ABOVE SEEMS OFF SO REMADE:
 Round not distinctive
 Strident not distinctive
 
--
+--
 
 8 nodes are used to represent humanness
 
@@ -61,7 +61,7 @@ Strident not distinctive
 0 0 0 0 1 1 1 1 —> female human
 0 0 0 0 0 0 0 0 —> non-human
 
--
+--
 
 Original had Slavic gender, but they are irrelevant (12 nodes)
 
@@ -69,7 +69,7 @@ Original had Slavic gender, but they are irrelevant (12 nodes)
 0 0 0 0 1 1 1 1 0 0 0 0 —> feminine
 0 0 0 0 0 0 0 0 1 1 1 1 —> neuter
 
--
+--
 
 Case Frequencies Implemented as how many times case goes into model—estimated by Polinsky and van Everbroeck
 
