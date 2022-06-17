@@ -1,12 +1,3 @@
-Raksit Tyler Lau-Preechathammarach
-2016.06.24
-
-This is the revised implementation of Lau (2016)
-
-Main Code 2 guesses only ending
-
-~*~
-
 # Input layer
 - A stem can have a maximum of 36 phonemes (6 syllables, 6 potential phonemes)
 - Potential phonemes are: p, t, k, b, d, g, f, v, s, z, h, m, n, w, r, l, y, i, u, e, o, a, - (no phoneme)
@@ -28,7 +19,7 @@ Main Code 2 guesses only ending
 
 - 36 * 11 = 396 nodes
 
---
+---
 
 - ABOVE SEEMS OFF SO REMADE:
 1) Sonorant
@@ -48,29 +39,21 @@ Main Code 2 guesses only ending
 - Round not distinctive
 - Strident not distinctive
 
---
+---
 
-## 8 nodes are used to represent humanness
+- 8 nodes are used to represent humanness
+	- 1 1 1 1 0 0 0 0 —> male human
+	- 0 0 0 0 1 1 1 1 —> female human
+	- 0 0 0 0 0 0 0 0 —> non-human
 
-1 1 1 1 0 0 0 0 —> male human
+- Original had Slavic gender, but they are irrelevant (12 nodes)
+	- 1 1 1 1 0 0 0 0 0 0 0 0 —> masculine
+	- 0 0 0 0 1 1 1 1 0 0 0 0 —> feminine
+	- 0 0 0 0 0 0 0 0 1 1 1 1 —> neuter
 
-0 0 0 0 1 1 1 1 —> female human
+---
 
-0 0 0 0 0 0 0 0 —> non-human
-
---
-
-## Original had Slavic gender, but they are irrelevant (12 nodes)
-
-1 1 1 1 0 0 0 0 0 0 0 0 —> masculine
-
-0 0 0 0 1 1 1 1 0 0 0 0 —> feminine
-
-0 0 0 0 0 0 0 0 1 1 1 1 —> neuter
-
---
-
-## Case Frequencies Implemented as how many times case goes into model—estimated by Polinsky and van Everbroeck
+- Case Frequencies Implemented as how many times case goes into model—estimated by Polinsky and van Everbroeck
 
 <table>
 	<tr>
@@ -112,7 +95,7 @@ Main Code 2 guesses only ending
 
 - From Delatte et al 1981: TAKE ALL WORDS THAT SHOW UP 10 OR MORE TIMES IN BOTH POETRY AND PROSE
 
-## Raw Numbers
+### Raw Numbers
 
 <table>
 	<tr>
@@ -187,7 +170,7 @@ Main Code 2 guesses only ending
 	</tr>	
 </table>
 
-## By percentage:
+### By percentage:
 
 <table>
 	<tr>
@@ -246,7 +229,7 @@ Main Code 2 guesses only ending
 	</tr>
 </table>
 
-## By ratio:
+### By ratio:
 
 <table>
 	<tr>
@@ -354,8 +337,6 @@ Main Code 2 guesses only ending
 		<td colspan="2" style="text-align:center;">230252</td>
 	</tr>
 </table>
-
-~*~
 
 ### By percentage:		
 
@@ -484,7 +465,7 @@ Main Code 2 guesses only ending
 	</tr>
 </table>	
 
-***
+---
 
 ## Declension Breakdown (Delatte et al 1981)
 
@@ -510,59 +491,42 @@ Percentage
 
 ***
 
-## Hidden layer
+# Hidden layer
 - 30 hidden nodes
 
 ***
 
-## Output layer
+# Output layer
 - Mapped to four outputs (P&VE only did gender)
 - Gender (3):
-
-	M: 1 0 0
-	
-	F: 0 1 0
-	
-	N: 0 0 1
+	- M: 1 0 0
+	- F: 0 1 0
+	- N: 0 0 1
 
 - Declension (5):
-
-	I: 1 0 0 0 0
-	
-	II: 0 1 0 0 0
-	
-	III: 0 0 1 0 0 
-	
-	IV: 0 0 0 1 0
-	
-	V: 0 0 0 0 1
+	- I: 1 0 0 0 0
+	- II: 0 1 0 0 0
+	- III: 0 0 1 0 0 
+	- IV: 0 0 0 1 0
+	- V: 0 0 0 0 1
 
 - Number (2):
-
-	SG: 1 0
-	
-	PL: 0 1
+	- SG: 1 0
+	- PL: 0 1
 
 - Case (3):
-	
 	- If Case Hierarchy implemented (consider Acc closer to Nom and Gen than Nom and Gen to each other)
-	
-		Nom: 1 0 0
-		
-		Acc: 1 1 0
-		
-		Gen: 1 1 1
-
+		- Nom: 1 0 0
+		- Acc: 1 1 0
+		- Gen: 1 1 1
 	- If Case Hierarchy not Implemented (all three equidistant)
-	
-		Nom: 1 0 0
-		
-		Acc: 0 1 0
-		
-		Gen: 0 0 1
+		- Nom: 1 0 0
+		- Acc: 0 1 0
+		- Gen: 0 0 1
 
+---
 
-### Relevant parameters
+# Relevant parameters
 
 - Genitive Drop (Gnv)
 	- If T, genitive is dropped
